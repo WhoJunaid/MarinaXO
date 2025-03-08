@@ -25,7 +25,7 @@ let resultArea = document.querySelector(".resultarea");
 let result = document.querySelector(".result");
 
 document.querySelector(".playagain").onclick = function restart() {
-    location.reload()
+    location.reload();
 }
 
 

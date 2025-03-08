@@ -136,7 +136,7 @@ const board = [
         box.disabled=true;});
         alert.innerText = victoryTaunts[Math.floor(Math.random() * 100) + 1];
         resultArea.style.display = "block";
-        result.innerText = "Marina wins!!"
+        result.innerText = "Marina wins!!";
       }
     if (isDraw(board)===true) {
       boxes.forEach((box)=>{
