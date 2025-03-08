@@ -149,7 +149,6 @@ let moveCount = 0;
         alert.innerText = victoryTaunts[Math.floor(Math.random() * 100) + 1];
         resultArea.style.display = "block";
         result.innerText = "Marina wins!!"
-        console.log("secound");
         
       };
       if (checkWinO(board,'X')===true) {

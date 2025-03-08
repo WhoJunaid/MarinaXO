@@ -94,7 +94,7 @@ const board = [
   }
   
  boxes.forEach((box)=>{
-    box.disabled=true;}) 
+    box.disabled=true;});
   document.querySelector(".computer").onclick = function compFirst() {
     boxes.forEach((box)=>{
         box.disabled=false;}) 
@@ -102,19 +102,20 @@ const board = [
     moveX(board);
   };
   
-        // importScripts (victoryTaunts);
+        
   
   boxes.forEach((box)=>{
     box.addEventListener("click" ,() =>{
         if (player==="ai") {
         box.innerText = 'O';
-        box.disabled=true;
+        
         board[box.className.charAt(3)]='O'
         moveCount++;
         setTimeout(() => {
             moveX(board); 
          }, 1000);
-        
+        //  boxes[]
+        // box.disabled=true;
 
                 }
         })
@@ -125,7 +126,6 @@ const board = [
     board[getBestMove(board)]='X';
     box.disabled=true;
     moveCount++;
-    console.log(moveCount);
 
     if (moveCount===5) {
       alert.innerText = savageTaunts[Math.floor(Math.random() * 100) + 1]
