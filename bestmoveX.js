@@ -102,7 +102,7 @@ const board = [
     moveX(board);
   };
   
-        
+        // importScripts (victoryTaunts);
   
   boxes.forEach((box)=>{
     box.addEventListener("click" ,() =>{
@@ -131,10 +131,11 @@ const board = [
       alert.innerText = savageTaunts[Math.floor(Math.random() * 100) + 1]
     }
 
-    if (checkWin(board,'X')===true) {
+    if (checkWin(board,'X')===true) { 
+      alert.innerText = victoryTaunts[Math.floor(Math.random() * 100) + 1];
       boxes.forEach((box)=>{
-        box.disabled=true;});
-        alert.innerText = victoryTaunts[Math.floor(Math.random() * 100) + 1];
+        box.disabled=true});
+       
         resultArea.style.display = "block";
         result.innerText = "Marina wins!!";
       }
