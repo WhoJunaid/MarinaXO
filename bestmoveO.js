@@ -1,5 +1,5 @@
 function getBestMoveO(board) {
-  // Immediate return for empty board (optimal first move)
+  
   if (board.every(cell => cell === null)) return 4;
 
   let bestScore = -Infinity;
@@ -7,7 +7,7 @@ function getBestMoveO(board) {
   let alpha = -Infinity;
   let beta = Infinity;
 
-  // Check moves in optimal order: center, corners, edges
+  
   const moveOrder = [4, 0, 2, 6, 8, 1, 3, 5, 7];
 
   for (const i of moveOrder) {
@@ -19,11 +19,11 @@ function getBestMoveO(board) {
           if (score > bestScore) {
               bestScore = score;
               bestMove = i;
-              if (score === 10) break; // Found immediate win
+              if (score === 10) break; 
           }
 
           alpha = Math.max(alpha, score);
-          if (beta <= alpha) break; // Prune remaining branches
+          if (beta <= alpha) break; 
       }
   }
   return bestMove;
@@ -46,7 +46,7 @@ function minimaxO(board, depth, isMaximizing, alpha, beta) {
               
               bestScore = Math.max(bestScore, score);
               alpha = Math.max(alpha, bestScore);
-              if (beta <= alpha || bestScore === 10) break; // Prune or early win exit
+              if (beta <= alpha || bestScore === 10) break; 
           }
       }
       return bestScore;
@@ -60,18 +60,18 @@ function minimaxO(board, depth, isMaximizing, alpha, beta) {
               
               bestScore = Math.min(bestScore, score);
               beta = Math.min(beta, bestScore);
-              if (beta <= alpha || bestScore === -10) break; // Prune or early loss exit
+              if (beta <= alpha || bestScore === -10) break; 
           }
       }
       return bestScore;
   }
 }
 
-// Optimized win check for O AI version
+
 function checkWinO(board, player) {
-  const winPatterns = [0b111000000, 0b000111000, 0b000000111, // Rows
-                      0b100100100, 0b010010010, 0b001001001, // Columns
-                      0b100010001, 0b001010100]; // Diagonals
+  const winPatterns = [0b111000000, 0b000111000, 0b000000111, 
+                      0b100100100, 0b010010010, 0b001001001,
+                      0b100010001, 0b001010100]; 
                       
   const playerMask = board.reduce((mask, cell, idx) => 
       cell === player ? mask | (1 << (8 - idx)) : mask, 0);
@@ -79,7 +79,6 @@ function checkWinO(board, player) {
   return winPatterns.some(pattern => (playerMask & pattern) === pattern);
 }
 
-// Optimized draw check for O AI version
 function isDrawO(board) {
   return !board.includes(null) && 
           !checkWinO(board, 'X') && 
